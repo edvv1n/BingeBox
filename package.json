@@ -1,0 +1,32 @@
+{
+  "name": "bingebox-catalina",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18.20.8"
+  },
+  "scripts": {
+    "dev": "node server/index.mjs",
+    "start": "node server/index.mjs --production",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "lucide-react": "1.31.0",
+    "dotenv": "16.6.1"
+  },
+  "devDependencies": {
+    "vite": "5.4.21",
+    "typescript": "5.9.3",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@types/node": "18.19.130"
+  },
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node@4.34.9"
+  }
+}
