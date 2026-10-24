@@ -1,4 +1,4 @@
-import { knowledgeBase, fallbackAnswer, type ChatMessage } from '../../../lib/support-knowledge';
+import { knowledgeBase, fallbackAnswer, type ChatMessage } from '../../../lib/support-knowledge.js';
 const reply = (body: unknown, status = 200) => Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } });
 export async function POST(req: Request) {
   if (req.headers.get('origin') !== new URL(req.url).origin) return reply({ error: 'Invalid request origin.' }, 403);

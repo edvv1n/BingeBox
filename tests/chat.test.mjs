@@ -8,7 +8,7 @@ import {pathToFileURL} from 'node:url';
 const dir=mkdtempSync(join(tmpdir(),'bingebox-chat-'));
 function compile(source,target){writeFileSync(join(dir,target),ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText)}
 compile(readFileSync('lib/support-knowledge.ts','utf8'),'knowledge.mjs');
-compile(readFileSync('app/api/chat/route.ts','utf8').replace('../../../lib/support-knowledge','./knowledge.mjs'),'route.mjs');
+compile(readFileSync('app/api/chat/route.ts','utf8').replace('../../../lib/support-knowledge.js','./knowledge.mjs'),'route.mjs');
 const {knowledgeBase,fallbackAnswer}=await import(pathToFileURL(join(dir,'knowledge.mjs')));
 const {POST}=await import(pathToFileURL(join(dir,'route.mjs')));
 const saved={...process.env};const originalFetch=globalThis.fetch;
